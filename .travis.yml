@@ -10,14 +10,14 @@ before_install:
 script:
   - docker run -e CI=true nucleom42/docker-reacrt npm run test
 
-# deploy:
-#   - provider: elasticbeanstalk
-#   - region: "us-east-2"
-#   - app: "docker-react-oleg"
-#   - env: "DockerReactOleg-env"
-#   - bucket_name: "elasticbeanstalk-us-east-2-426588831761"
-#   - bucket_path: "docker-react-oleg"
-#   on:
-#     branch: master
-#   access_key_id: $AWS_ACCESS_KEY
-#   secret_access_key: $AWS_SECRET_KEY
+deploy:
+  provider: elasticbeanstalk
+  region: 'us-east-2'
+  app: 'docker-react-oleg'
+  env: 'DockerReactOleg-env'
+  bucket_name: 'elasticbeanstalk-us-east-2-426588831761'
+  bucket_path: 'docker-react-oleg'
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
